@@ -32,8 +32,7 @@ const FormTask = ({ addTask }) => {
 			<h2>Agregar Tarea</h2>
 			<p style={{ textAlign: "justify", textJustify: "inter-word" }}>
 				En la siguiente página podrás agregar tareas y eliminarlas a medida que
-				vayas cumpliendo con ellas para que así tengas tu propia agentas
-				personal
+				vayas cumpliendo con ellas para que así tengas tu propia agenda personal
 			</p>
 			<Button
 				variant="success"
