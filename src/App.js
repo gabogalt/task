@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Header from "./componentes/Header";
+import FormTask from "./componentes/FormTask";
+import VerTask from "./componentes/VerTask";
+import { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [tasks, setTask] = useState([]);
+
+	const addTask = (task) => {
+		setTask([...tasks, task]);
+	};
+
+	const deleteTask = (id) => {
+		const finalTasks = tasks.filter((task) => task.id !== id);
+		setTask(finalTasks);
+	};
+
+	return (
+		<>
+			<Header />
+			<Container
+				className="mt-5 mb-5"
+				style={{ border: "6px solid black", borderRadius: "10px" }}
+			>
+				<Row>
+					<Col sm={12} md={6}>
+						<FormTask addTask={addTask} />
+					</Col>
+					<Col sm={12} md={6}>
+						<VerTask task={tasks} deleteTask={deleteTask} />
+					</Col>
+				</Row>
+			</Container>
+		</>
+	);
 }
 
 export default App;
